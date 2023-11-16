@@ -13,24 +13,14 @@ You can also run the below commands in a Gitpod instance without needing any con
 
 ## App specific functionality
 
-Build the image in Docker first: `docker build -t dancer .`
+We can use docker compose to get the application up and running in a local environment - just perform `docker compose up`
 
-Once image is built, you can sync the folder in and run it: `docker run -d -p 3000:3000 -v $(pwd):/opt -w /opt dancer`
+This will build the image, copy the application in and run `perl app.pl` to start the application
 
-This will run the docker image and map the internal port 3000 to the port 3000 of the host system. It will also map the /opt directory of the container to the current directory of the host system.
-
-This will launch the Dancer application in the container and you can visit it from your desktop by browsing to: http://127.0.0.1:3000/
+You can visit it from your desktop by browsing to: http://127.0.0.1:3000/
 
 ## Continual work
 
-Run `docker container ls` and you will see something like this:
+Use `ctrl-c` to send a halt to docker compose and it will bring down the container gracefully.
 
-```
-❯ docker container ls
-CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS         PORTS                                                                                    NAMES
-c0306495fc74   dancer                                           "perl app.pl"            4 seconds ago   Up 4 seconds   0.0.0.0:3000->3000/tcp, :::3000->3000/tcp                                                laughing_jemison
-```
-
-You can now stop your container by running `docker stop c0306495fc74`
-
-Update your code and rebuild your container with the build command, and re-run the container with your run command above.
+Update your code and rebuild your container with `docker compose up` as shown above 
