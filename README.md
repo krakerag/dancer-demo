@@ -13,7 +13,7 @@ You can also run the below commands in a Gitpod instance without needing any con
 
 ## App specific functionality
 
-We can use docker compose to get the application up and running in a local environment - just perform `docker compose up`
+We can use docker compose to get the application up and running in a local environment - just perform `docker compose up -d`
 
 This will build the image, copy the application in and run `perl app.pl` to start the application
 
@@ -21,6 +21,6 @@ You can visit it from your desktop by browsing to: http://127.0.0.1:3000/
 
 ## Continual work
 
-Use `ctrl-c` to send a halt to docker compose and it will bring down the container gracefully.
+Use `docker compose down` to send a halt to docker compose and it will bring down the container gracefully.
 
-Update your code and rebuild your container with `docker compose up` as shown above 
+Update your code and rebuild your container with `docker compose up -d` as shown above 
