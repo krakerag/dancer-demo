@@ -6,4 +6,5 @@ RUN apt-get update                      && \
     apt-get install -y libdancer-perl
 COPY . /opt
 WORKDIR /opt
+EXPOSE 3000
 ENTRYPOINT [ "perl", "app.pl" ]
