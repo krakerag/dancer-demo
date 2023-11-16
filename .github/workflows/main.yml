@@ -19,4 +19,4 @@ jobs:
       run: docker run -d -p 3001:3000 --name dancer_container dancer
 
     - name: Validate endpoint works
-      run: curl -i http://127.0.0.1:3001/
+      run: curl -i http://localhost:3001
