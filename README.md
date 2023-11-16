@@ -9,6 +9,8 @@ NB: These notes are for MacOS - Win10/11 is probably easy, under WSL2 using dock
 - `brew install docker docker-compose colima`
 - `colima start --cpu 4 --memory 8 --disk 150 -t vz`
 
+You can also run the below commands in a Gitpod instance without needing any configuration files.
+
 ## App specific functionality
 
 Build the image in Docker first: `docker build -t dancer .`
