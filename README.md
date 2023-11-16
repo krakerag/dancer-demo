@@ -15,18 +15,22 @@ You can also run the below commands in a Gitpod instance without needing any con
 
 Build the image in Docker first: `docker build -t dancer .`
 
-Once image is built, you can sync the folder in and run it: `docker run --rm -it -p 3001:3000 -v $(pwd):/opt -w /opt dancer`
+Once image is built, you can sync the folder in and run it: `docker run -d -p 3000:3000 -v $(pwd):/opt -w /opt dancer`
 
-This will run the docker image and map the internal port 3000 to the port 3001 of the host system. It will also map the /opt directory of the container to the current directory of the host system.
+This will run the docker image and map the internal port 3000 to the port 3000 of the host system. It will also map the /opt directory of the container to the current directory of the host system.
 
-It will show you a prompt like this: `root@6e055fa48a34:/opt#`
-
-You're ready to bootstrap the app with: `perl app.pl`
-
-This will launch the Dancer application in the container and you can visit it from your desktop by browsing to: http://127.0.0.1:3001/
+This will launch the Dancer application in the container and you can visit it from your desktop by browsing to: http://127.0.0.1:3000/
 
 ## Continual work
 
-Use `ctrl-c` to stop serving content and `exit` to stop the container
+Run `docker container ls` and you will see something like this:
 
-You can re-run the `docker run` command from above to resync the local folder and prepare to relaunch the app
+```
+❯ docker container ls
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS         PORTS                                                                                    NAMES
+c0306495fc74   dancer                                           "perl app.pl"            4 seconds ago   Up 4 seconds   0.0.0.0:3000->3000/tcp, :::3000->3000/tcp                                                laughing_jemison
+```
+
+You can now stop your container by running `docker stop c0306495fc74`
+
+Update your code and rebuild your container with the build command, and re-run the container with your run command above.

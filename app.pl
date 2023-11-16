@@ -2,7 +2,7 @@
 use Dancer;
  
 get '/' => sub {
-    return "Dancer is responding inside Docker correctly";
+    return "Dancer is responding inside Docker container";
 };
  
 dance;
