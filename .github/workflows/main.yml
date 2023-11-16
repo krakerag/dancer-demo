@@ -22,4 +22,4 @@ jobs:
       run: docker container ls
 
     - name: Run curl to ensure endpoint responds
-      run: curl -i http://localhost:3001
+      run: curl -i http://127.0.0.1:3001
