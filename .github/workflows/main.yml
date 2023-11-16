@@ -15,8 +15,7 @@ jobs:
     - name: Build docker image
       run: docker build -t dancer .
 
-    - name: Run docker image with entrypoint
-      run: docker run -d -p 3001:3000 --name dancer_container dancer
-
-    - name: Validate endpoint works
-      run: curl -i http://localhost:3001
+    - name: Run docker image with entrypoint and validate container
+      run: |
+        docker run -d -p 3001:3000 --name dancer_container dancer
+        curl -i http://localhost:3001
